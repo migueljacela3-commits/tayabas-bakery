@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tayabas Bakery (Since 1950) | Official Quezon Storefront</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              main: '#8B4513',
+              dark: '#5C2C0C',
+              light: '#A0522D',
+              cream: '#FFFDF9',
+              gold: '#D97706',
+              amber: '#F59E0B',
+              bgLight: '#FFFBEB'
+            }
+          }
+        }
+      }
+    };
+  </script>
+  
+  <!-- FontAwesome Icons & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+  
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #FFFDF9; color: #2D2723; }
+    h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: #FFFBEB; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #D97706; border-radius: 4px; }
+  </style>
+</head>
+<body class="bg-[#FFFDF9] text-[#2D2723] antialiased min-h-screen flex flex-col">
+
+  <!-- ========================================== -->
+  <!-- HEADER & NAVIGATION -->
+  <!-- ========================================== -->
+  <header class="sticky top-0 z-40 bg-[#8B4513] text-white shadow-md border-b border-[#D97706]/30">
+    <!-- Top Announcement Bar -->
+    <div class="bg-[#5C2C0C] text-[#FFFBEB] text-xs py-1.5 px-4">
+      <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <div class="flex items-center gap-2">
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="font-medium">Open Daily: 5:00 AM – 8:00 PM | Store Pickup & Express Deliveries Active</span>
+        </div>
+        <div class="hidden md:flex gap-4 items-center text-xs">
+          <span><i class="fa-solid fa-location-dot text-[#F59E0B] mr-1"></i> Tayabas & Lucena Outlets</span>
+          <span><i class="fa-solid fa-phone text-[#F59E0B] mr-1"></i> (042) 797-1234</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between gap-4">
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-full bg-[#D97706] text-white flex items-center justify-center font-bold text-xl shadow-inner group-hover:scale-105 transition-transform border-2 border-amber-300">
+          TB
+        </div>
+        <div>
+          <h1 class="text-xl sm:text-2xl font-bold tracking-tight text-white leading-tight font-serif">Tayabas Bakery</h1>
+          <p class="text-[11px] text-amber-200 uppercase tracking-widest font-semibold">Since 1950 • Quezon's Best</p>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-medium">
+        <a href="#catalog" class="text-amber-100 hover:text-white transition-colors">Products Catalog</a>
+        <a href="#pasalubong-builder" class="text-amber-100 hover:text-white transition-colors">Pasalubong Box Builder</a>
+        <a href="#heritage" class="text-amber-100 hover:text-white transition-colors">Our 1950 Story</a>
+        <a href="#branches" class="text-amber-100 hover:text-white transition-colors">Store Locations</a>
+      </nav>
+
+      <!-- Cart Button -->
+      <div class="flex items-center gap-3">
+        <button onclick="toggleCartDrawer()" class="relative bg-[#D97706] hover:bg-amber-600 text-white px-4 py-2 rounded-xl flex items-center gap-2.5 font-semibold text-sm shadow-sm transition-all transform active:scale-95">
+          <i class="fa-solid fa-basket-shopping text-base"></i>
+          <span class="hidden sm:inline">My Cart</span>
+          <span id="cart-badge" class="bg-red-600 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-[#D97706]">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ========================================== -->
+  <!-- HERO BANNER -->
+  <!-- ========================================== -->
+  <section class="relative bg-gradient-to-r from-[#5C2C0C] via-[#8B4513] to-[#A0522D] text-white py-12 md:py-16 px-4 overflow-hidden">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center relative z-10">
+      <div class="space-y-4">
+        <div class="inline-flex items-center gap-2 bg-amber-500/20 backdrop-blur-md px-3 py-1 rounded-full text-amber-300 text-xs font-semibold border border-amber-400/30">
+          <i class="fa-solid fa-award"></i> The Original Quezon Special Broas & Bakery Treats
+        </div>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight font-serif">
+          Authentic Quezon Baking Tradition Since 1950
+        </h2>
+        <p class="text-amber-100 text-sm sm:text-base leading-relaxed max-w-xl">
+          Order signature <strong>Special Broas</strong>, crispy <strong>Apas</strong>, flaky <strong>Otap</strong>, fresh <strong>Sliced Loaves</strong>, and warm <strong>Tayabas Budin</strong> directly from our oven to your doorstep.
+        </p>
+        <div class="pt-2 flex flex-wrap gap-3">
+          <a href="#catalog" class="bg-[#D97706] hover:bg-amber-600 text-white font-bold px-6 py-3 rounded-xl text-sm shadow-lg transition-all flex items-center gap-2">
+            <i class="fa-solid fa-store"></i> Shop Verified Products
+          </a>
+          <a href="#pasalubong-builder" class="bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold px-5 py-3 rounded-xl text-sm transition-all flex items-center gap-2">
+            <i class="fa-solid fa-gift"></i> Custom Gift Box
+          </a>
+        </div>
+      </div>
+      
+      <!-- Hero Product Showcase -->
+      <div class="relative flex justify-center">
+        <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-amber-300/30 max-w-md w-full bg-[#5C2C0C]">
+          <img src="https://foodpanda.dhmedia.io/image/vso-so-backend/FP_PH/HT0CYK/attachment__1780628162972729686.jpg?width=600" alt="Tayabas Bakery Special Broas Canister" class="w-full h-80 object-cover hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/5C2C0C/FFFBEB?text=Tayabas+Bakery+Broas'">
+          <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 text-white">
+            <span class="bg-amber-500 text-xs font-bold px-2 py-0.5 rounded text-black">Flagship Product</span>
+            <p class="font-bold text-lg font-serif mt-1">Special Broas Canister (Tin)</p>
+            <p class="text-xs text-amber-200">Crispy, airy, egg-rich ladyfingers in our signature yellow tin box</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================== -->
+  <!-- VERIFIED PRODUCT CATALOG SECTION -->
+  <!-- ========================================== -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10" id="catalog">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b border-amber-200 gap-4">
+      <div>
+        <div class="flex items-center gap-2 text-amber-700 font-bold text-xs uppercase tracking-wider mb-1">
+          <i class="fa-brands fa-facebook text-blue-600"></i> Verified Facebook & Official Store Menu
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-[#5C2C0C] font-serif">Official Bakery Products</h2>
+      </div>
+      
+      <!-- Search Filter -->
+      <div class="flex items-center gap-3">
+        <div class="relative w-full sm:w-64">
+          <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+          <input type="text" id="search-input" onkeyup="filterProducts()" placeholder="Search Broas, Apas, Budin..." class="w-full pl-9 pr-4 py-2 border border-amber-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#D97706] bg-white">
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Grid -->
+    <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <!-- Product 1: Special Broas Canister (Tin) -->
+      <div class="product-card bg-white rounded-2xl overflow-hidden border border-amber-200 shadow-sm hover:shadow-md transition-shadow flex flex-col" data-title="special broas canister tin yellow">
+        <div class="relative h-56 bg-amber-50 overflow-hidden">
+          <img src="https://foodpanda.dhmedia.io/image/vso-so-backend/FP_PH/HT0CYK/attachment__1780628162972729686.jpg?width=600" alt="Special Broas Canister (Tin)" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/8B4513/FFFBEB?text=Special+Broas+Tin'">
+          <span class="absolute top-3 left-3 bg-[#D97706] text-white text-xs font-bold px-2.5 py-1 rounded-lg shadow-sm">
+            Signature Tin
+          </span>
+        </div>
+        <div class="p-5 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="text-lg font-bold text-[#5C2C0C] font-serif">Special Broas Canister (Tin)</h3>
+            <p class="text-xs text-gray-600 mt-1 leading-relaxed">
+              Authentic egg-rich ladyfingers packed in Tayabas Bakery's iconic reusable yellow tin box. Perfect for pasalubong.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-amber-100 flex items-center justify-between">
+            <div>
+              <span class="text-xs text-gray-500 block">Price</span>
+              <span class="text-xl font-bold text-[#8B4513]">₱380.00</span>
+            </div>
+            <button onclick="addToCart('Special Broas Canister (Tin)', 380, 'https://foodpanda.dhmedia.io/image/vso-so-backend/FP_PH/HT0CYK/attachment__1780628162972729686.jpg?width=600')" class="bg-[#8B4513] hover:bg-[#5C2C0C] text-white px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shadow-sm">
+              <i class="fa-solid fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 2: Special Broas (Clear Pack) -->
+      <div class="product-card bg-white rounded-2xl overflow-hidden border border-amber-200 shadow-sm hover:shadow-md transition-shadow flex flex-col" data-title="special broas clear pack cellophane pouch">
+        <div class="relative h-56 bg-amber-50 overflow-hidden">
+          <img src="https://foodpanda.dhmedia.io/image/vso-so-backend/FP_PH/HT0CYK/attachment__1780628194203083981.jpg?width=600" alt="Special Broas (Clear Pack)" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/8B4513/FFFBEB?text=Special+Broas+Pack'">
+          <span class="absolute top-3 left-3 bg-amber-700 text-white text-xs font-bold px-2.5 py-1 rounded-lg shadow-sm">
+            Cellophane Bag
+          </span>
+        </div>
+        <div class="p-5 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="text-lg font-bold text-[#5C2C0C] font-serif">Special Broas (Clear Pack)</h3>
+            <p class="text-xs text-gray-600 mt-1 leading-relaxed">
+              Light, crispy, melts-in-your-mouth ladyfingers packed in official sealed Tayabas Bakery cellophane bag.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-amber-100 flex items-center justify-between">
+            <div>
+              <span class="text-xs text-gray-500 block">Price</span>
+              <span class="text-xl font-bold text-[#8B4513]">₱140.00</span>
+            </div>
+            <button onclick="addToCart('Special Broas (Clear Pack)', 140, 'https://foodpanda.dhmedia.io/image/vso-so-backend/FP_PH/HT0CYK/attachment__1780628194203083981.jpg?width=600')" class="bg-[#8B4513] hover:bg-[#5C2C0C] text-white px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shadow-sm">
+              <i class="fa-solid fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 3: Tayabas Special Apas -->
+      <div class="product-card bg-white rounded-2xl overflow-hidden border border-amber-200 shadow-sm hover:shadow-md transition-shadow flex flex-col" data-title="tayabas special apas biscuits oval sugar">
+        <div class="relative h-56 bg-amber-50 overflow-hidden">
+          <img src="https://foodpanda.dhmedia.io/image/vso-so-backend/FP_PH/HT0CYK/attachment__1780619249313398693.jpg?width=600" alt="Tayabas Special Apas" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/8B4513/FFFBEB?text=Tayabas+Apas'">
+          <span class="absolute top-3 left-3 bg-emerald-700 text-white text-xs font-bold px-2.5 py-1 rounded-lg shadow-sm">
+            Classic Favorite
+          </span>
+        </div>
+        <div class="p-5 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="text-lg font-bold text-[#5C2C0C] font-serif">Tayabas Special Apas</h3>
+            <p class="text-xs text-gray-600 mt-1 leading-relaxed">
+              Crispy, thin oval biscuits lightly sprinkled with refined sugar. Prepared using our 1950 traditional recipe.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-amber-100 flex items-center justify-between">
+            <div>
+              <span class="text-xs text-gray-500 block">Price</span>
+              <span class="text-xl font-bold text-[#8B4513]">₱75.00</span>
+            </div>
+            <button onclick="addToCart('Tayabas Special Apas', 75, 'https://foodpanda.dhmedia.io/image/vso-so-backend/FP_PH/HT0CYK/attachment__1780619249313398693.jpg?width=600')" class="bg-[#8B4513] hover:bg-[#5C2C0C] text-white px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shadow-sm">
+              <i class="fa-solid fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 4: Tayabas Special Otap -->
+      <div class="product-card bg-white rounded-2xl overflow-hidden border border-amber-200 shadow-sm hover:shadow-md transition-shadow flex flex-col" data-title="tayabas special otap pastry flaky sugar">
+        <div class="relative h-56 bg-amber-50 overflow-hidden">
+          <img src="https://foodpanda.dhmedia.io/image/vso-so-backend/FP_PH/HT0CYK/attachment__1780622758921319704.jpg?width=600" alt="Tayabas Special Otap" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/8B4513/FFFBEB?text=Tayabas+Otap'">
+          <span class="absolute top-3 left-3 bg-[#D97706] text-white text-xs font-bold px-2.5 py-1 rounded-lg shadow-sm">
+            Flaky Pastry
+          </span>
+        </div>
+        <div class="p-5 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="text-lg font-bold text-[#5C2C0C] font-serif">Tayabas Special Otap</h3>
+            <p class="text-xs text-gray-600 mt-1 leading-relaxed">
+              Multi-layered flaky puff pastry coated with caramelized sugar crystals. Baked fresh daily.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-amber-100 flex items-center justify-between">
+            <div>
+              <span class="text-xs text-gray-500 block">Price</span>
+              <span class="text-xl font-bold text-[#8B4513]">₱85.00</span>
+            </div>
+            <button onclick="addToCart('Tayabas Special Otap', 85, 'https://foodpanda.dhmedia.io/image/vso-so-backend/FP_PH/HT0CYK/attachment__1780622758921319704.jpg?width=600')" class="bg-[#8B4513] hover:bg-[#5C2C0C] text-white px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shadow-sm">
+              <i class="fa-solid fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 5: Special Tayabas Budin -->
+      <div class="product-card bg-white rounded-2xl overflow-hidden border border-amber-200 shadow-sm hover:shadow-md transition-shadow flex flex-col" data-title="special tayabas budin cassava cake cheese">
+        <div class="relative h-56 bg-amber-50 overflow-hidden">
+          <img src="https://amiablefoods.com/wp-content/uploads/budin-hero1-768x1024.jpg" alt="Special Tayabas Budin" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/8B4513/FFFBEB?text=Tayabas+Budin'">
+          <span class="absolute top-3 left-3 bg-red-700 text-white text-xs font-bold px-2.5 py-1 rounded-lg shadow-sm">
+            Quezon Specialty
+          </span>
+        </div>
+        <div class="p-5 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="text-lg font-bold text-[#5C2C0C] font-serif">Special Tayabas Budin</h3>
+            <p class="text-xs text-gray-600 mt-1 leading-relaxed">
+              Rich, creamy cassava cake with coconut milk and melted cheese topping, baked traditionally in banana leaves.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-amber-100 flex items-center justify-between">
+            <div>
+              <span class="text-xs text-gray-500 block">Price</span>
+              <span class="text-xl font-bold text-[#8B4513]">₱120.00</span>
+            </div>
+            <button onclick="addToCart('Special Tayabas Budin', 120, 'https://amiablefoods.com/wp-content/uploads/budin-hero1-768x1024.jpg')" class="bg-[#8B4513] hover:bg-[#5C2C0C] text-white px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shadow-sm">
+              <i class="fa-solid fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 6: Tayabas Tasty Sliced Loaf -->
+      <div class="product-card bg-white rounded-2xl overflow-hidden border border-amber-200 shadow-sm hover:shadow-md transition-shadow flex flex-col" data-title="tayabas tasty sliced loaf bread white">
+        <div class="relative h-56 bg-amber-50 overflow-hidden">
+          <img src="https://foodpanda.dhmedia.io/image/vso-so-backend/FP_PH/HT0CYK/attachment__1780620722210825292.jpg?width=600" alt="Tayabas Tasty Sliced Loaf" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/8B4513/FFFBEB?text=Tasty+Loaf'">
+          <span class="absolute top-3 left-3 bg-[#5C2C0C] text-white text-xs font-bold px-2.5 py-1 rounded-lg shadow-sm">
+            Daily Baked Loaf
+          </span>
+        </div>
+        <div class="p-5 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 class="text-lg font-bold text-[#5C2C0C] font-serif">Tayabas Tasty Sliced Loaf</h3>
+            <p class="text-xs text-gray-600 mt-1 leading-relaxed">
+              Soft, pillowy machine-sliced white loaf bread baked fresh every morning in our traditional pugon oven.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-amber-100 flex items-center justify-between">
+            <div>
+              <span class="text-xs text-gray-500 block">Price</span>
+              <span class="text-xl font-bold text-[#8B4513]">₱65.00</span>
+            </div>
+            <button onclick="addToCart('Tayabas Tasty Sliced Loaf', 65, 'https://foodpanda.dhmedia.io/image/vso-so-backend/FP_PH/HT0CYK/attachment__1780620722210825292.jpg?width=600')" class="bg-[#8B4513] hover:bg-[#5C2C0C] text-white px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shadow-sm">
+              <i class="fa-solid fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+
+  <!-- ========================================== -->
+  <!-- PASALUBONG GIFT BOX CREATOR -->
+  <!-- ========================================== -->
+  <section id="pasalubong-builder" class="bg-[#FFFBEB] py-12 px-4 border-y border-amber-200">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-8">
+        <span class="text-xs font-bold uppercase tracking-wider text-[#D97706] bg-amber-100 px-3 py-1 rounded-full border border-amber-300">
+          <i class="fa-solid fa-boxes-packing"></i> Customize Your Gift Package
+        </span>
+        <h2 class="text-3xl font-bold text-[#5C2C0C] font-serif mt-2">Quezon Pasalubong Box Creator</h2>
+        <p class="text-sm text-gray-600 mt-1">Select your preferred box size and combine verified Tayabas Bakery treats into a custom ribboned gift package.</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-6 shadow-md border border-amber-200 max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+        <!-- Builder Controls -->
+        <div class="space-y-4">
+          <div>
+            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">1. Select Gift Box Packaging</label>
+            <select id="box-size" onchange="calculateBoxTotal()" class="w-full border border-amber-300 rounded-xl px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#D97706]">
+              <option value="50">Standard Gift Box Packaging (+₱50.00)</option>
+              <option value="90">Large Heritage Crate Packaging (+₱90.00)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">2. Select Included Treats</label>
+            <div class="space-y-2 text-sm">
+              <label class="flex items-center justify-between p-2.5 rounded-xl border border-gray-100 hover:bg-amber-50/50 cursor-pointer">
+                <div class="flex items-center gap-2">
+                  <input type="checkbox" value="380" class="box-item rounded text-[#D97706]" onchange="calculateBoxTotal()" checked data-name="Special Broas Canister (Tin)">
+                  <span class="font-medium text-gray-800">Special Broas Canister</span>
+                </div>
+                <span class="font-bold text-[#8B4513]">₱380.00</span>
+              </label>
+
+              <label class="flex items-center justify-between p-2.5 rounded-xl border border-gray-100 hover:bg-amber-50/50 cursor-pointer">
+                <div class="flex items-center gap-2">
+                  <input type="checkbox" value="75" class="box-item rounded text-[#D97706]" onchange="calculateBoxTotal()" checked data-name="Tayabas Special Apas">
+                  <span class="font-medium text-gray-800">Tayabas Special Apas</span>
+                </div>
+                <span class="font-bold text-[#8B4513]">₱75.00</span>
+              </label>
+
+              <label class="flex items-center justify-between p-2.5 rounded-xl border border-gray-100 hover:bg-amber-50/50 cursor-pointer">
+                <div class="flex items-center gap-2">
+                  <input type="checkbox" value="85" class="box-item rounded text-[#D97706]" onchange="calculateBoxTotal()" data-name="Tayabas Special Otap">
+                  <span class="font-medium text-gray-800">Tayabas Special Otap</span>
+                </div>
+                <span class="font-bold text-[#8B4513]">₱85.00</span>
+              </label>
+
+              <label class="flex items-center justify-between p-2.5 rounded-xl border border-gray-100 hover:bg-amber-50/50 cursor-pointer">
+                <div class="flex items-center gap-2">
+                  <input type="checkbox" value="120" class="box-item rounded text-[#D97706]" onchange="calculateBoxTotal()" data-name="Special Tayabas Budin">
+                  <span class="font-medium text-gray-800">Special Tayabas Budin</span>
+                </div>
+                <span class="font-bold text-[#8B4513]">₱120.00</span>
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">3. Custom Greeting Card Note</label>
+            <input type="text" id="box-note" placeholder="e.g. Maligayang Fiesta! Warm greetings from Lucena" class="w-full border border-amber-300 rounded-xl px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#D97706]">
+          </div>
+        </div>
+
+        <!-- Box Summary & Action -->
+        <div class="bg-[#5C2C0C] text-white rounded-2xl p-6 flex flex-col justify-between shadow-inner">
+          <div>
+            <div class="flex items-center justify-between border-b border-white/20 pb-3">
+              <span class="text-xs uppercase font-bold tracking-wider text-amber-300">Custom Gift Package Breakdown</span>
+              <i class="fa-solid fa-gift text-xl text-amber-400"></i>
+            </div>
+
+            <div class="mt-4 space-y-2 text-sm text-amber-100" id="box-summary-list">
+              <!-- Dynamically Populated -->
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-white/20">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-sm font-medium">Package Total:</span>
+              <span class="text-2xl font-bold text-amber-300" id="box-total-price">₱505.00</span>
+            </div>
+            <button onclick="addCustomBoxToCart()" class="w-full bg-[#D97706] hover:bg-amber-600 text-white font-bold py-3 rounded-xl transition-all shadow-md flex items-center justify-center gap-2">
+              <i class="fa-solid fa-cart-plus"></i> Add Custom Box To Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================== -->
+  <!-- HERITAGE 1950 STORY SECTION -->
+  <!-- ========================================== -->
+  <section id="heritage" class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-widest text-[#D97706] mb-1 block">70+ Years of Quality</span>
+        <h2 class="text-3xl font-bold text-[#5C2C0C] font-serif mb-4">The Pride of Tayabas, Quezon</h2>
+        <p class="text-gray-700 leading-relaxed text-sm mb-4">
+          Established in 1950 in the historic town of Tayabas City, Quezon, <strong>Tayabas Bakery</strong> has been crafting traditional Filipino pastries and bread for over seven decades. Founded by the Castillo family, the bakery remains a cherished institution in Southern Luzon.
+        </p>
+        <p class="text-gray-700 leading-relaxed text-sm mb-6">
+          Our famous <strong>Special Broas</strong> are made using time-honored recipes with fresh eggs and zero artificial preservatives, slow-baked in brick wood-fired ovens ("pugon") to achieve their signature light, airy crunch.
+        </p>
+        <div class="grid grid-cols-2 gap-4 border-t border-amber-200 pt-4">
+          <div>
+            <span class="text-2xl font-bold text-[#8B4513] font-serif block">1950</span>
+            <span class="text-xs text-gray-500">Year Established</span>
+          </div>
+          <div>
+            <span class="text-2xl font-bold text-[#8B4513] font-serif block">100% Authentic</span>
+            <span class="text-xs text-gray-500">Traditional Brick Oven</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Showcase Image -->
+      <div class="rounded-2xl overflow-hidden shadow-xl border-4 border-amber-100">
+        <img src="https://foodpanda.dhmedia.io/image/vso-so-backend/FP_PH/HT0CYK/attachment__1780628162972729686.jpg?width=600" alt="Tayabas Bakery Tradition" class="w-full h-80 object-cover" onerror="this.src='https://placehold.co/600x400/8B4513/FFFBEB?text=Heritage+Tayabas+Bakery'">
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================== -->
+  <!-- BRANCH LOCATIONS SECTION -->
+  <!-- ========================================== -->
+  <section id="branches" class="bg-[#FFFDF9] py-10 border-t border-amber-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8">
+        <h2 class="text-2xl font-bold text-[#5C2C0C] font-serif">Visit Our Outlets</h2>
+        <p class="text-xs text-gray-600 mt-1">Visit our bakery outlets in Tayabas City and Lucena City, Quezon</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <!-- Main Branch -->
+        <div class="bg-white p-6 rounded-2xl border border-amber-200 shadow-sm flex gap-4 items-start">
+          <div class="w-10 h-10 rounded-xl bg-amber-100 text-[#D97706] flex items-center justify-center font-bold flex-shrink-0">
+            <i class="fa-solid fa-store"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-[#5C2C0C] font-serif text-lg">Main Outlet (Tayabas City)</h3>
+            <p class="text-xs text-gray-600 mt-1">Poblacion, Tayabas City, Quezon Province</p>
+            <p class="text-xs text-[#8B4513] font-semibold mt-2"><i class="fa-regular fa-clock mr-1"></i> Open Daily: 5:00 AM – 8:00 PM</p>
+          </div>
+        </div>
+
+        <!-- Lucena Branch -->
+        <div class="bg-white p-6 rounded-2xl border border-amber-200 shadow-sm flex gap-4 items-start">
+          <div class="w-10 h-10 rounded-xl bg-amber-100 text-[#D97706] flex items-center justify-center font-bold flex-shrink-0">
+            <i class="fa-solid fa-shop"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-[#5C2C0C] font-serif text-lg">Lucena City Outlet</h3>
+            <p class="text-xs text-gray-600 mt-1">Merchan St. / City Center, Lucena City, Quezon</p>
+            <p class="text-xs text-[#8B4513] font-semibold mt-2"><i class="fa-regular fa-clock mr-1"></i> Open Daily: 6:00 AM – 7:30 PM</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================== -->
+  <!-- SLIDE-OVER SHOPPING CART DRAWER -->
+  <!-- ========================================== -->
+  <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden">
+    <!-- Backdrop -->
+    <div onclick="toggleCartDrawer()" class="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity"></div>
+
+    <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+      <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+        <!-- Drawer Header -->
+        <div class="p-4 bg-[#5C2C0C] text-white flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-basket-shopping text-amber-400"></i>
+            <h3 class="font-bold font-serif text-lg">Your Bakery Order</h3>
+          </div>
+          <button onclick="toggleCartDrawer()" class="text-amber-200 hover:text-white p-1">
+            <i class="fa-solid fa-xmark text-xl"></i>
+          </button>
+        </div>
+
+        <!-- Items Container -->
+        <div id="cart-items-container" class="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar">
+          <!-- Dynamically Injected -->
+        </div>
+
+        <!-- Drawer Footer -->
+        <div class="p-4 border-t border-amber-200 bg-[#FFFBEB] space-y-3">
+          <div class="flex justify-between items-center text-sm font-bold text-gray-800">
+            <span>Total Amount:</span>
+            <span id="cart-total-price" class="text-xl text-[#8B4513]">₱0.00</span>
+          </div>
+
+          <div class="space-y-2">
+            <label class="block text-xs font-bold text-gray-700 uppercase">Fulfillment Method</label>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <button type="button" id="btn-pickup" onclick="setFulfillment('Store Pickup')" class="py-2 px-3 border border-[#D97706] bg-[#D97706] text-white font-bold rounded-xl text-center">Store Pickup</button>
+              <button type="button" id="btn-delivery" onclick="setFulfillment('Express Delivery')" class="py-2 px-3 border border-amber-300 bg-white text-gray-700 font-bold rounded-xl text-center">Express Delivery</button>
+            </div>
+          </div>
+
+          <!-- Messenger Checkout Button -->
+          <button onclick="sendFacebookOrder()" class="w-full bg-[#1877F2] hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 text-sm">
+            <i class="fa-brands fa-facebook-messenger text-lg"></i> Checkout via Facebook Messenger
+          </button>
+          
+          <p class="text-[11px] text-gray-500 text-center">
+            Clicking checkout copies your order summary and opens <strong>@TayabasBakery</strong> on FB Messenger.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================== -->
+  <!-- FOOTER -->
+  <!-- ========================================== -->
+  <footer class="bg-[#5C2C0C] text-amber-100 py-8 border-t border-amber-900 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 text-center space-y-3 text-xs">
+      <div class="flex justify-center items-center gap-2 font-serif text-base text-white font-bold">
+        <span>Tayabas Bakery (Since 1950)</span>
+      </div>
+      <p class="text-amber-200/80">Official Quezon Specialty Bakery Store • Tayabas City & Lucena City</p>
+      <div class="flex justify-center gap-4 text-amber-300 pt-2">
+        <a href="https://www.facebook.com/TayabasBakery/" target="_blank" class="hover:underline flex items-center gap-1">
+          <i class="fa-brands fa-facebook"></i> Official Facebook Page
+        </a>
+      </div>
+      <p class="text-amber-300/40 text-[10px] pt-4">© 1950–2026 Tayabas Bakery. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+
+  <!-- ========================================== -->
+  <!-- JAVASCRIPT APPLICATION LOGIC -->
+  <!-- ========================================== -->
+  <script>
+    let cart = [];
+    let fulfillmentMethod = 'Store Pickup';
+
+    function filterProducts() {
+      const query = document.getElementById('search-input').value.toLowerCase();
+      const cards = document.querySelectorAll('.product-card');
+      cards.forEach(card => {
+        const title = card.getAttribute('data-title').toLowerCase();
+        if (title.includes(query)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    function toggleCartDrawer() {
+      const drawer = document.getElementById('cart-drawer');
+      drawer.classList.toggle('hidden');
+    }
+
+    function addToCart(name, price, img) {
+      const existing = cart.find(item => item.name === name);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ name, price, img, qty: 1 });
+      }
+      updateCartUI();
+      
+      const drawer = document.getElementById('cart-drawer');
+      if (drawer.classList.contains('hidden')) {
+        toggleCartDrawer();
+      }
+    }
+
+    function updateQuantity(index, change) {
+      cart[index].qty += change;
+      if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+      }
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const container = document.getElementById('cart-items-container');
+      const badge = document.getElementById('cart-badge');
+      const totalEl = document.getElementById('cart-total-price');
+
+      let totalCount = 0;
+      let totalPrice = 0;
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 text-gray-400">
+            <i class="fa-solid fa-basket-shopping text-4xl mb-3 text-amber-200"></i>
+            <p class="text-sm">Your cart is currently empty.</p>
+            <p class="text-xs mt-1 text-gray-400">Add verified products from our menu above!</p>
+          </div>
+        `;
+      } else {
+        container.innerHTML = cart.map((item, index) => {
+          totalCount += item.qty;
+          totalPrice += item.price * item.qty;
+          return `
+            <div class="flex items-center gap-3 p-3 bg-amber-50/50 rounded-xl border border-amber-200">
+              <img src="${item.img}" alt="${item.name}" class="w-14 h-14 object-cover rounded-lg flex-shrink-0 border border-amber-200" onerror="this.src='https://placehold.co/100x100/8B4513/FFFBEB?text=Tayabas'">
+              <div class="flex-1 min-w-0">
+                <h4 class="font-bold text-xs text-[#5C2C0C] truncate">${item.name}</h4>
+                <p class="text-xs font-bold text-[#8B4513]">₱${(item.price * item.qty).toFixed(2)}</p>
+                <div class="flex items-center gap-2 mt-1">
+                  <button onclick="updateQuantity(${index}, -1)" class="w-5 h-5 bg-amber-200 text-[#5C2C0C] rounded font-bold flex items-center justify-center text-xs">-</button>
+                  <span class="text-xs font-bold w-4 text-center">${item.qty}</span>
+                  <button onclick="updateQuantity(${index}, 1)" class="w-5 h-5 bg-amber-200 text-[#5C2C0C] rounded font-bold flex items-center justify-center text-xs">+</button>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      badge.innerText = totalCount;
+      totalEl.innerText = `₱${totalPrice.toFixed(2)}`;
+    }
+
+    function setFulfillment(method) {
+      fulfillmentMethod = method;
+      const btnPickup = document.getElementById('btn-pickup');
+      const btnDelivery = document.getElementById('btn-delivery');
+
+      if (method === 'Store Pickup') {
+        btnPickup.className = 'py-2 px-3 border border-[#D97706] bg-[#D97706] text-white font-bold rounded-xl text-center';
+        btnDelivery.className = 'py-2 px-3 border border-amber-300 bg-white text-gray-700 font-bold rounded-xl text-center';
+      } else {
+        btnDelivery.className = 'py-2 px-3 border border-[#D97706] bg-[#D97706] text-white font-bold rounded-xl text-center';
+        btnPickup.className = 'py-2 px-3 border border-amber-300 bg-white text-gray-700 font-bold rounded-xl text-center';
+      }
+    }
+
+    function calculateBoxTotal() {
+      const boxFee = parseFloat(document.getElementById('box-size').value);
+      const checkboxes = document.querySelectorAll('.box-item:checked');
+      let itemsTotal = 0;
+      let summaryHtml = `<div>• Packaging Fee (+₱${boxFee.toFixed(2)})</div>`;
+
+      checkboxes.forEach(cb => {
+        const val = parseFloat(cb.value);
+        const name = cb.getAttribute('data-name');
+        itemsTotal += val;
+        summaryHtml += `<div>• ${name} (₱${val.toFixed(2)})</div>`;
+      });
+
+      const grandTotal = boxFee + itemsTotal;
+      document.getElementById('box-summary-list').innerHTML = summaryHtml;
+      document.getElementById('box-total-price').innerText = `₱${grandTotal.toFixed(2)}`;
+    }
+
+    function addCustomBoxToCart() {
+      const boxFee = parseFloat(document.getElementById('box-size').value);
+      const checkboxes = document.querySelectorAll('.box-item:checked');
+      let itemsTotal = 0;
+      checkboxes.forEach(cb => itemsTotal += parseFloat(cb.value));
+
+      const note = document.getElementById('box-note').value.trim();
+      const grandTotal = boxFee + itemsTotal;
+      const boxName = `Custom Gift Box ${note ? '(' + note + ')' : ''}`;
+
+      addToCart(boxName, grandTotal, 'https://foodpanda.dhmedia.io/image/vso-so-backend/FP_PH/HT0CYK/attachment__1780628162972729686.jpg?width=600');
+    }
+
+    function sendFacebookOrder() {
+      if (cart.length === 0) {
+        alert('Please add products to your cart before checking out!');
+        return;
+      }
+
+      let orderText = `Hello Tayabas Bakery! I would like to place an order:\n\n`;
+      let total = 0;
+
+      cart.forEach((item, i) => {
+        const sub = item.price * item.qty;
+        total += sub;
+        orderText += `${i + 1}. ${item.name} x${item.qty} - ₱${sub.toFixed(2)}\n`;
+      });
+
+      orderText += `\nFulfillment Method: ${fulfillmentMethod}\nTotal Amount: ₱${total.toFixed(2)}\n\nPlease confirm order details and payment methods. Thank you!`;
+
+      // Fallback clipboard command
+      const dummy = document.createElement("textarea");
+      document.body.appendChild(dummy);
+      dummy.value = orderText;
+      dummy.select();
+      document.execCommand("copy");
+      document.body.removeChild(dummy);
+
+      alert('Order summary copied to clipboard! Opening Facebook Messenger for @TayabasBakery...');
+      window.open('https://m.me/TayabasBakery', '_blank');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      calculateBoxTotal();
+    });
+  </script>
+</body>
+</html>
